@@ -1,4 +1,4 @@
-package com.server.musalasoft.drone_management.annotation;
+package com.server.musalasoft.drone_management.annotation.loggable;
 
 import com.server.musalasoft.drone_management.utility.function.Common;
 import lombok.AllArgsConstructor;
@@ -15,7 +15,7 @@ public class LoggableServiceAspect {
 
     private final Common common;
 
-    @Before(value = "@annotation(LoggableService) && args(o, ..)")
+    @Before(value = "@annotation(com.server.musalasoft.drone_management.annotation.loggable.LoggableService) && args(o, ..)")
     public void beforeServiceLog(JoinPoint joinPoint, Object o) {
         common.writeLog(joinPoint, o);
     }

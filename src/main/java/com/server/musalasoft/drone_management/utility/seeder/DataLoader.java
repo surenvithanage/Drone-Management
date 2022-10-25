@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import javax.validation.ConstraintViolationException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -69,21 +70,25 @@ public class DataLoader implements CommandLineRunner {
     }
 
     private void insertMedication() {
-        if (medicationRepository.count() == 0) {
-            Medication medication1 = new Medication((long) 1, "Medicine_01", 50.0, "MED01", "https://cdn1.vectorstock.com/i/1000x1000/08/45/alternative-medicine-icon-flat-design-vector-6910845.jpg");
-            medicationRepository.save(medication1);
+        try {
+            if (medicationRepository.count() == 0) {
+                Medication medication1 = new Medication((long) 1, "Medicine_01", 450.0, "MED01", "https://cdn1.vectorstock.com/i/1000x1000/08/45/alternative-medicine-icon-flat-design-vector-6910845.jpg");
+                medicationRepository.save(medication1);
 
-            Medication medication2 = new Medication((long) 2, "Medicine_02", 120.0, "MED02", "https://cdn1.vectorstock.com/i/1000x1000/08/45/alternative-medicine-icon-flat-design-vector-6910845.jpg");
-            medicationRepository.save(medication2);
+                Medication medication2 = new Medication((long) 2, "Medicine_02", 120.0, "MED02", "https://cdn1.vectorstock.com/i/1000x1000/08/45/alternative-medicine-icon-flat-design-vector-6910845.jpg");
+                medicationRepository.save(medication2);
 
-            Medication medication3 = new Medication((long) 3, "Medicine_03", 25.0, "MED03", "https://cdn1.vectorstock.com/i/1000x1000/08/45/alternative-medicine-icon-flat-design-vector-6910845.jpg");
-            medicationRepository.save(medication3);
+                Medication medication3 = new Medication((long) 3, "Medicine_03", 25.0, "MED03", "https://cdn1.vectorstock.com/i/1000x1000/08/45/alternative-medicine-icon-flat-design-vector-6910845.jpg");
+                medicationRepository.save(medication3);
 
-            Medication medication4 = new Medication((long) 4, "Medicine_04", 75.0, "MED04", "https://cdn1.vectorstock.com/i/1000x1000/08/45/alternative-medicine-icon-flat-design-vector-6910845.jpg");
-            medicationRepository.save(medication4);
+                Medication medication4 = new Medication((long) 4, "Medicine_04", 75.0, "MED04", "https://cdn1.vectorstock.com/i/1000x1000/08/45/alternative-medicine-icon-flat-design-vector-6910845.jpg");
+                medicationRepository.save(medication4);
 
-            Medication medication5 = new Medication((long) 5, "Medicine_05", 100.0, "MED05", "https://cdn1.vectorstock.com/i/1000x1000/08/45/alternative-medicine-icon-flat-design-vector-6910845.jpg");
-            medicationRepository.save(medication5);
+                Medication medication5 = new Medication((long) 5, "Medicine_05", 100.0, "MED05", "https://cdn1.vectorstock.com/i/1000x1000/08/45/alternative-medicine-icon-flat-design-vector-6910845.jpg");
+                medicationRepository.save(medication5);
+            }
+        } catch (ConstraintViolationException ex) {
+            throw ex;
         }
     }
 

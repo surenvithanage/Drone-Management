@@ -1,4 +1,4 @@
-package com.server.musalasoft.drone_management.annotation;
+package com.server.musalasoft.drone_management.annotation.loggable;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
