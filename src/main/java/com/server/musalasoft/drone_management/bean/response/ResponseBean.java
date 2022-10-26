@@ -2,16 +2,20 @@ package com.server.musalasoft.drone_management.bean.response;
 
 import com.server.musalasoft.drone_management.bean.keyvalue.KeyValueBean;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ResponseBean {
+public class ResponseBean implements Serializable {
+    private static final long serialVersionUID = -8064824073358277119L;
+
     private boolean requestOk;
     private String messageType; //S -> successMessage ,W -> warningMessage ,E -> errorMessage
     private String message;
     private List<KeyValueBean> data = new ArrayList<KeyValueBean>();
 
-    public ResponseBean(){}
+    public ResponseBean() {
+    }
 
     public ResponseBean(boolean requestOk) {
         this.requestOk = requestOk;
@@ -54,8 +58,8 @@ public class ResponseBean {
         this.data = data;
     }
 
-    public void setData(KeyValueBean... kv){
-        for(KeyValueBean o:kv){
+    public void setData(KeyValueBean... kv) {
+        for (KeyValueBean o : kv) {
             data.add(o);
         }
     }

@@ -102,30 +102,26 @@ public class DroneServiceImpl implements DroneService {
         try {
             // check if drone exists
             Drone drone = Optional.ofNullable(droneRepository.findBySerialNumber(serialNumber))
-                    .orElseThrow(() -> new EntityNotFoundException("Drone not found"));
+                    .orElseThrow(() -> new EntityNotFoundException(MessageVarList.DRONE_NOT_FOUND));
 
             // drone battery check
             if (drone.getBatteryCapacity() < CodeVarList.MIN_DRONE_BATTERY_PERCENTAGE) {
-                throw new InvalidArgumentException("Battery level is below 25%");
+                throw new InvalidArgumentException(MessageVarList.DRONE_BATTERY_LEVEL_LOW);
             }
 
             // check drone is idle
             if (drone.getState() != State.IDLE) {
-                throw new UnavailableException("At the moment the drone is unavailable");
+                throw new UnavailableException(MessageVarList.DRONE_UNAVAILABLE);
             }
 
-            // assuming loading all the drones in pending state with the drone state still LOADING
+            // assuming loading all the drones are in the loading state
             List<DroneMedication> droneMedicationList = droneMedicationRepository.findAllByDrone(drone);
 
+            // obtaining the total weight loaded into the drone
             double totalWeight = droneMedicationList.get(0).getMedication().stream().mapToDouble(Medication::getWeight).sum();
 
             if (totalWeight > drone.getWeightLimit())
-                throw new InvalidArgumentException("Provided medications exceeds maximum weight that can be handled by the drone");
-
-            Drone updated = droneMedicationList.get(0).getDrone();
-            updated.setState(State.LOADED);
-            droneMedicationList.get(0).setDrone(updated);
-            droneMedicationRepository.saveAll(droneMedicationList);
+                throw new InvalidArgumentException(MessageVarList.DRONE_WEIGHT_EXCEEDED);
 
             responseBean.setRequestOk(true);
             responseBean.setMessageType(CodeVarList.SUCCESS);
