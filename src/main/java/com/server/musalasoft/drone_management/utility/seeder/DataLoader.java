@@ -11,6 +11,7 @@ import com.server.musalasoft.drone_management.utility.enums.State;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 import javax.validation.ConstraintViolationException;
@@ -19,6 +20,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Component
+@Profile("!test")
 @AllArgsConstructor(onConstructor = @__(@Autowired))
 public class DataLoader implements CommandLineRunner {
 
