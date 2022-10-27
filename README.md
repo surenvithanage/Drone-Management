@@ -41,3 +41,6 @@ This assessment was completed using **Spring Boot version 2.7.5** and a **H2 InM
 - Postman collection is also included in the root directory
 - Test cases can be executed using **mvn test**
 
+## Database
+![alt text](https://github.com/surenvithanage/Drone-Management/blob/develop/screenshots/Database.png?raw=true)
+
