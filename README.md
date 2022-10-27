@@ -38,4 +38,5 @@ This assessment was completed using **Spring Boot version 2.7.5** and a **H2 InM
 - Database is automatically seeded with the required data during the application start up
 - Logs can be viewed from the **output.log** file
 - Swagger can be accessed from **http://localhost:8080/swagger-ui.html#/** for testing all the endpoints
+- Postman collection is also included in the root directory
 
