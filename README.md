@@ -61,19 +61,19 @@ This assessment was completed using **Spring Boot version 2.7.5** and a **H2 InM
 
 ![alt text](https://github.com/surenvithanage/Drone-Management/blob/develop/screenshots/Drone_Medication_List.png?raw=true)
 
-### checking loaded medication items for a given drone
+### Checking loaded medication items for a given drone
 
 **http://localhost:8080/api/v1/drone/check/medications/5UE0460I0R**
 
 ![alt text](https://github.com/surenvithanage/Drone-Management/blob/develop/screenshots/Validate_Loaded_Medication_Drone.png?raw=true)
 
-### checking available drones for loading
+### Checking available drones for loading
 
 **http://localhost:8080/api/v1/drone/find/available**
 
 ![alt text](https://github.com/surenvithanage/Drone-Management/blob/develop/screenshots/Available_Drone_List.png?raw=true)
 
-### check drone battery level for a given drone
+### Check drone battery level for a given drone
 
 **http://localhost:8080/api/v1/drone/battery_level/4CE0460D0G**
 
