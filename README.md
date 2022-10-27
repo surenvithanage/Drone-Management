@@ -44,3 +44,37 @@ This assessment was completed using **Spring Boot version 2.7.5** and a **H2 InM
 ## Database
 ![alt text](https://github.com/surenvithanage/Drone-Management/blob/develop/screenshots/Database.png?raw=true)
 
+## Swagger
+![alt text](https://github.com/surenvithanage/Drone-Management/blob/develop/screenshots/Swagger_ui.png?raw=true)
+
+## Endpoints
+
+### Registering a drone
+
+**http://localhost:8080/api/v1/drone**
+
+![alt text](https://github.com/surenvithanage/Drone-Management/blob/develop/screenshots/Drone_Registration.png?raw=true)
+
+### Loading a drone with medication items
+
+**http://localhost:8080/api/v1/drone/medications/5UE0460I0R**
+
+![alt text](https://github.com/surenvithanage/Drone-Management/blob/develop/screenshots/Drone_Medication_List.png?raw=true)
+
+### checking loaded medication items for a given drone
+
+**http://localhost:8080/api/v1/drone/check/medications/5UE0460I0R**
+
+![alt text](https://github.com/surenvithanage/Drone-Management/blob/develop/screenshots/Validate_Loaded_Medication_Drone.png?raw=true)
+
+### checking available drones for loading
+
+**http://localhost:8080/api/v1/drone/find/available**
+
+![alt text](https://github.com/surenvithanage/Drone-Management/blob/develop/screenshots/Available_Drone_List.png?raw=true)
+
+### check drone battery level for a given drone
+
+**http://localhost:8080/api/v1/drone/battery_level/4CE0460D0G**
+
+![alt text](https://github.com/surenvithanage/Drone-Management/blob/develop/screenshots/Drone_Battery_Level.png?raw=true)
